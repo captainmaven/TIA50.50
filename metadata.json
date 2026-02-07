@@ -1,0 +1,5 @@
+{
+  "name": "TIA Designation Calculator",
+  "description": "A professional calculator for Texas teachers to estimate their TIA designation based on T-TESS ratings and student growth data using a 50/50 weighting model.",
+  "requestFramePermissions": []
+}
