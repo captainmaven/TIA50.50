@@ -23,7 +23,7 @@ function App() {
   const [results, setResults] = useState<CalculatedResults | null>(null);
 
   const handleRatingChange = (dim: TTessDimension, val: number) => {
-    setTtessRatings(prev => ({ ...prev, [dim]: Math.max(1, Math.min(5, val)) }));
+    setTtessRatings(prev => ({ ...prev, [dim]: val > 5 ? 5 : val }));
   };
 
   const handleAddClass = () => {
@@ -124,7 +124,7 @@ function App() {
                 </svg>
               }
             >
-              <p className="text-sm text-gray-500 mb-6">Enter whole number ratings (1-5) for each dimension below.</p>
+              <p className="text-sm text-gray-500 mb-6">Enter ratings (1-5) for each dimension below. Decimals are supported.</p>
               <TTessInputs ratings={ttessRatings} onRatingChange={handleRatingChange} />
             </Card>
 
