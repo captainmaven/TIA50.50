@@ -21,9 +21,12 @@ export const TTessInputs: React.FC<TTessInputsProps> = ({ ratings, onRatingChang
             type="number"
             min="1"
             max="5"
-            step="1"
-            value={ratings[dim]}
-            onChange={(e) => onRatingChange(dim, parseInt(e.target.value) || 1)}
+            step="0.1"
+            value={ratings[dim] === 0 ? '' : ratings[dim]}
+            onChange={(e) => {
+              const val = parseFloat(e.target.value);
+              onRatingChange(dim, isNaN(val) ? 0 : val);
+            }}
             className="border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-r2-teal focus:outline-none text-r2-navy font-medium"
           />
         </div>
